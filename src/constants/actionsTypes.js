@@ -1,0 +1,3 @@
+export const ATTEMPT_AUTH = "ATTEMPT_AUTH";
+export const ATTEMPT_LOGOUT = "ATTEMPT_LOGOUT";
+export const CREATE_FEEDBACK = "CREATE_FEEDBACK";
