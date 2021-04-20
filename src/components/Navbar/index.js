@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { attemptLogout } from "./../../actions/auth.actions";
 import { Button } from "../Button";
 
-function Navbar({ actions }) {
+function Navbar({ actions, auth = {} }) {
   const attemptLogout = () => {
     actions.attemptLogout(null);
   };
@@ -18,21 +18,31 @@ function Navbar({ actions }) {
 
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <Link to="/feedbacks" className="nav-link">
+          <NavLink
+            to="/feedbacks"
+            className="nav-link"
+            activeClassName="active"
+            exact
+          >
             Feedback List
-          </Link>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <Link to="/feedbacks/create" className="nav-link">
+          <NavLink
+            to="/feedbacks/create"
+            className="nav-link"
+            activeClassName="active"
+            exact
+          >
             Feedback Create
-          </Link>
+          </NavLink>
         </li>
       </ul>
 
       <ul className="navbar-nav">
         <li className="nav-item">
           <Button variant="link nav-link" onClick={attemptLogout}>
-            Logout
+            Logout({auth && auth.name})
           </Button>
         </li>
       </ul>

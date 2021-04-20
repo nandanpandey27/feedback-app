@@ -35,7 +35,7 @@ function App({ auth = null, actions }) {
 
   return (
     <>
-      {!isSignupPage && <Navbar />}
+      {!isSignupPage && <Navbar auth={auth} />}
       <div className="container mt-3">
         <Switch>
           <Route exact path="/signup" component={Signup} />
